@@ -4,6 +4,17 @@
 <html>
 <head>
     <title>Employee Manager</title>
+    <script>window.onload = function() {
+        // Gửi yêu cầu GET đến URL mặc định
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/employee', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                // Xử lý phản hồi từ server (nếu cần)
+            }
+        };
+        xhr.send();
+    };</script>
 </head>
 <body>
     <table>
@@ -36,8 +47,8 @@
                             </form>
                         </td>
                         <td>
-                            <form action="student" method="post">
-                                <input type="hidden" name="idStu" value="${emp.id}">
+                            <form action="employee" method="post">
+                                <input type="hidden" name="idEmp" value="${emp.id}">
                                 <button type="submit" name="method" value="DELETE">DELETE</button>
                             </form>
                         </td>

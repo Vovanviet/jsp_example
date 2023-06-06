@@ -4,7 +4,6 @@ contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
     <title>Title</title>
-    <style><%@include file="WEB-INF/style/notFound.css" %></style>
   </head>
   <body>
   <div class="container"> <h1 style="color: aqua;justify-content: center"> 404 </h1>

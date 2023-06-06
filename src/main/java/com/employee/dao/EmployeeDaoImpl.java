@@ -11,8 +11,9 @@ public class EmployeeDaoImpl  implements  EmployeeDao{
     Session session;
     @Override
     public String createOrUpdate(Employee model) {
+        session = HibernateUtils.getSessionFactory().openSession();
+
         try {
-            session = HibernateUtils.getSessionFactory().openSession();
             session.beginTransaction();
             if (model.getId() == null){
                 session.save(model);
@@ -23,14 +24,13 @@ public class EmployeeDaoImpl  implements  EmployeeDao{
             return model.getFullname();
         }catch (Exception e){
             session.getTransaction().rollback();
-        }finally {
-            session.close();
         }
         return null;
     }
 
     @Override
     public List<Employee> getAll() {
+        session = HibernateUtils.getSessionFactory().openSession();
 
             try {
                 session = HibernateUtils.getSessionFactory().openSession();
@@ -41,23 +41,20 @@ public class EmployeeDaoImpl  implements  EmployeeDao{
             }catch (Exception e){
                 e.getStackTrace();
                 return  null;
-            }finally {
-                session.close();
             }
     }
 
     @Override
     public void deleteById(int id) {
+        session = HibernateUtils.getSessionFactory().openSession();
+
         try{
-            session = HibernateUtils.getSessionFactory().openSession();
             session.beginTransaction();
             Query query = session.createQuery("delete  from Employee where id = :id").setParameter("id",id);
             query.executeUpdate();
             session.getTransaction().commit();
         }catch (Exception e){
             session.getTransaction().rollback();
-        }finally {
-            session.close();
         }
     }
 }

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "employee",value = "/employee")
+@WebServlet(name = "employee",value = "/")
 public class EmployeeController extends HttpServlet {
     private final EmployeeDao dao = new EmployeeDaoImpl();
     Employee employee;
@@ -40,7 +40,7 @@ public class EmployeeController extends HttpServlet {
             employee.setPosition(req.getParameter("position"));
             dao.createOrUpdate(employee);
         }
-        resp.sendRedirect("index.jsp");
+        resp.sendRedirect("employee");
 
     }
 }
