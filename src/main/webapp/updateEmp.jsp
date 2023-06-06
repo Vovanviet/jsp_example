@@ -13,7 +13,7 @@
 <body>
 <% request.setCharacterEncoding("UTF-8"); %>
 <form class="form" action="employee" method="post" accept-charset="UTF-8">
-    <input type="hidden" value="<%= request.getParameter("id")%>">
+    <input type="hidden" name="id" value="<%= request.getParameter("id")%>">
     <div class="form-input">
         <label class="label-text" for="fullname">Full Name:</label>
         <input class="form input" type="text" id="fullname" name="fullname" value="<%= request.getParameter("fullname")%>">
