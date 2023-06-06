@@ -4,17 +4,7 @@
 <html>
 <head>
     <title>Employee Manager</title>
-    <script>window.onload = function() {
-        // Gửi yêu cầu GET đến URL mặc định
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', '/employee', true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // Xử lý phản hồi từ server (nếu cần)
-            }
-        };
-        xhr.send();
-    };</script>
+
 </head>
 <body>
     <table>
@@ -37,12 +27,12 @@
                         <td>${emp.department}</td>
                         <td>${emp.position}</td>
                         <td>
-                            <form class="form" action="updateStudent.jsp" method="post" accept-charset="UTF-8">
-                                <input type="hidden" name="studentId" value="${emp.id}"/>
-                                <input type="hidden" name="studentName" value="${emp.fullname}"/>
-                                <input type="hidden" name="studentAge" value="${emp.address}"/>
-                                <input type="hidden" name="studentAddress" value="${emp.department}"/>
-                                <input type="hidden" name="studentAddress" value="${emp.position}"/>
+                            <form class="form" action="updateEmp.jsp" method="post" accept-charset="UTF-8">
+                                <input type="hidden" name="id" value="${emp.id}"/>
+                                <input type="hidden" name="fullname" value="${emp.fullname}"/>
+                                <input type="hidden" name="address" value="${emp.address}"/>
+                                <input type="hidden" name="department" value="${emp.department}"/>
+                                <input type="hidden" name="position" value="${emp.position}"/>
                                 <button type="submit">UPDATE</button>
                             </form>
                         </td>
